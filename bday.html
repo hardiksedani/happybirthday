@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="title" content="Happy Birthday Website 2.0 | Aoudumber Bade">
+    <meta name="github" content="https://github.com/Aoudumber-Bade">
+    <title>HBD 2.0 | Aoudumber Bade</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <div id="wrapper">
+        <div class="flag__birthday">
+            <img src="./images/1.png" alt="" width="350" class="flag__left">
+            <img src="./images/1.png" alt="" width="350" class="flag__right">
+        </div>
+        <div class="content">
+            <div class="left">
+                <div class="title">
+                    <h1 class="happy">
+                        <span style="--t: 4s;">H</span>
+                        <span style="--t: 4.2s;">a</span>
+                        <span style="--t: 4.4s;">p</span>
+                        <span style="--t: 4.6s;">p</span>
+                        <span style="--t: 4.8s;">y</span>
+                    </h1>
+                    <h1 class="birthday">
+                        <span style="--t: 5s;">B</span>
+                        <span style="--t: 5.2s;">i</span>
+                        <span style="--t: 5.4s;">r</span>
+                        <span style="--t: 5.6s;">t</span>
+                        <span style="--t: 5.8s;">h</span>
+                        <span style="--t: 6s;">d</span>
+                        <span style="--t: 6.2s;">a</span>
+                        <span style="--t: 6.4s;">y</span>
+                    </h1>
+                    <div class="hat">
+                        <img src="./images/hat.png" alt="" width="130">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="box__letter">
+            <div class="letter__border">
+                <div class="title__letter"></div>
+                <div class="content__letter">
+                    <p>Do you love this surprise?</p>
+                    <div class="options">
+                        <button id="yesBtn" class="btn">Yes</button>
+                        <button id="noBtn" class="btn">No</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="popup" id="popup">
+        <div class="popup-content">
+            <p id="popupText">No, please don't do it! Rethink!</p>
+            <button id="popupNo" class="btn">No</button>
+        </div>
+    </div>
+    
+    <script>
+        let noClickCount = 0;
+        const popupMessages = [
+            "No, please don't do it! Rethink!",
+            "Are you sure? Please no! 😢",
+            "Come on, don't do this! Think again! 💔",
+            "This is your last chance! Say yes! 😭"
+        ];
+        
+        $("#noBtn").on("click", function() {
+            if (noClickCount < popupMessages.length) {
+                $("#popupText").text(popupMessages[noClickCount]);
+                $("#popup").fadeIn();
+                noClickCount++;
+            } else {
+                noClickCount = 0;
+            }
+        });
+        
+        $("#popupNo").on("click", function() {
+            $("#popup").fadeOut();
+            setTimeout(() => { $("#noBtn").click(); }, 500);
+        });
+        
+        $("#yesBtn").on("click", function() {
+            alert("Yay! I knew you'd say Yes! ❤️");
+        });
+    </script>
+</body>
+</html>
